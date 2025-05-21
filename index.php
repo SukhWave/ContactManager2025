@@ -35,6 +35,7 @@
                         <td><?php echo $contact['firstName']; ?></td>
                         <td><?php echo $contact['lastName']; ?></td>
                         <td><?php echo $contact['emailAddress']; ?></td>
+                        <td><?php echo $contact['phone']; ?></td>
                         <td><?php echo $contact['status']; ?></td>
                         <td><?php echo $contact['dob']; ?></td>
                     </tr>
