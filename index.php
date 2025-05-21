@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Contact Manager - Home</title>
@@ -18,7 +19,7 @@
                     <th>Status</th>
                     <th>Birth Date</th>
                 </tr>
-                
+
             </table>
         </main>
 
