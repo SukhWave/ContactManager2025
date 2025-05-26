@@ -12,6 +12,39 @@
     $dob = filter_input(INPUT_POST, 'dob');
 
     require_once('database.php');
+    $queryContacts = 'SELECT * FROM contacts';
+    $statement1 = $db->prepare($queryContacts);
+    $statement1->execute();
+    $contacts = $statement1->fetchAll();
+
+    $statement1->closeCursor();
+
+    foreach($contacts as $contact)
+    {
+      if ($email_address == $contact["emailAddress"])
+      {
+        $_SESSION["add_error"] = "Invalid data, Duplicate Email Address. Try again.";
+
+        $url = "error.php";
+        header("Location: " . $url);
+        die(); 
+      }
+    }
+
+    if($first_name == null || $last_name == null ||
+      $email_address == null || $phone_number == null || 
+      $dob == null)
+      {
+        $_SESSION["add_error"] = "Invalid contact data, check all fields and try again.";
+
+        $url = "error.php";
+        header("Location: " . $url);
+        die(); 
+
+      }
+    else
+{
+    require_once('database.php');
 
     //Add the contact to the database
     $query = 'INSERT INTO contacts
@@ -31,7 +64,7 @@
     $statement->closeCursor();
 
     $_SESSION["FullName"] = $first_name . " " . $last_name;
-
+}
     //redirect to confirmation page
     $url = "confirmation.php";
     header("Location: " . $url);
