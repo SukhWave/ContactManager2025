@@ -8,7 +8,7 @@
     if ($contact_id != false)
     {
         // delete the contact from the database
-        $query = 'DELETE FROM contacts WHERE contactID = :contact_id';
+    $query = 'DELETE FROM contacts WHERE contactID = :contact_id';
 
     $statement = $db->prepare($query);
     $statement->bindvalue(':contact_id', $contact_id);
