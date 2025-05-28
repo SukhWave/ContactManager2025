@@ -23,6 +23,7 @@ function resize_image($old_image_path, $new_image_path,
     // Get image type
     $image_info = getimagesize($old_image_path);
     $image_type = $image_info[2];
+
     // Set up the function names
     switch($image_type) {
         case IMAGETYPE_JPEG:
@@ -38,7 +39,7 @@ function resize_image($old_image_path, $new_image_path,
             $image_to_file = 'imagepng';
             break;
         default:
-            echo 'File must be a JPEG, GIF, or PNG image.'.$image_type;            
+            echo 'File must be a JPEG, GIF, or PNG image.'.$image_type;                  
             exit;
     }
     // Get the old image and its height and width
