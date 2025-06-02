@@ -12,27 +12,28 @@
 
             <form action="login.php" method="post" id="login_form"
                 enctype="multipart/form-data">
-            
+
                 <div id="data">
 
                     <label>Username:</label>
                     <input type="text" name="user_name" /><br />
 
                     <label>Password:</label>
-                    <input type="text" name="password" /><br />
+                    <input type="text" name="password" /><br />                    
 
-                  </div>
+                </div>
 
-                  <div id="buttons">
+                <div id="buttons">
 
                     <label>&nbsp;</label>
-                    <input type="submit" value="Login" /><br />                      
+                    <input type="submit" value="Login" /><br />
 
-                  </div>
+                </div>
 
             </form>
 
             <p><a href="register_contact_form.php">Register</a></p>
+            
         </main>
 
         <?php include("footer.php"); ?>

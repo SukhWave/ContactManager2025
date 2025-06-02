@@ -2,64 +2,65 @@
     session_start();
 
     // get data from the form
-    $user_name = filter_input(INPUT_POST, 'user_name');
+    $user_name = filter_input(INPUT_POST, 'user_name');    
     $password = filter_input(INPUT_POST, 'password');
 
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-
+    $hash = password_hash($password, PASSWORD_DEFAULT);  
+    
     require_once('database.php');
     $queryRegistrations = 'SELECT * FROM registrations';
-    $statement1 = $db->prepare($queryRegistrations);
-    $statement1->execute();
+    $statement = $db->prepare($queryRegistrations);
+    $statement->execute();
     $registrations = $statement->fetchAll();
 
-    $statement1->closeCursor();
+    $statement->closeCursor();
 
-    foreach($registrations as $registration)
+    foreach ($registrations as $registration)
     {
-      if ($user_name == $registration["userName"])
-      {
-        $_SESSION["add_error"] = "Invalid data, Duplicate Username. Try again.";
+        if ($user_name == $registration["userName"])
+        {
+            $_SESSION["add_error"] = "Invalid data, Duplicate Username. Try again.";
 
-        $url = "error.php";
-        header("Location: " . $url);
-        die(); 
-      }
+            $url = "error.php";
+            header("Location: " . $url);
+            die();
+        }
     }
 
-    if($user_name === null || $password === null)
-      {
-        $_SESSION["add_error"] = "Invalid registration data, check all fields and try again.";
+    if ($user_name === null || $password === null)
+    {
+        $_SESSION["add_error"] = "Invalid registration data, Check all fields and try again.";
 
         $url = "error.php";
         header("Location: " . $url);
-        die(); 
-
-      }
+        die();
+    }
     else
-{
-    require_once('database.php');
+    {        
 
-    //Add the contact to the database
-    $query = 'INSERT INTO registrations
-        (userName, password)
-        VALUES
-        (:userName, :password)';
+        require_once('database.php');
 
-    $statement = $db->prepare($query);
-    $statement->bindvalue(':userName', $user_name);
-    $statement->bindvalue(':password', $hash);
-    
-    $statement->execute();
-    $statement->closeCursor();
+        // Add the contact to the database
+        $query = 'INSERT INTO registrations
+            (userName, password)
+            VALUES
+            (:userName, :password)';
+
+        $statement = $db->prepare($query);
+        $statement->bindValue(':userName', $user_name);
+        $statement->bindValue(':password', $hash);
+
+        $statement->execute();
+        $statement->closeCursor();
+
+    }
 
     $_SESSION["isLoggedIn"] = 1;
     $_SESSION["userName"] = $user_name;
-}
-    //redirect to confirmation page
+
+    // redirect to confirmation page
     $url = "register_confirmation.php";
     header("Location: " . $url);
     die(); // releases add_contact.php from memory
-
 
 ?>

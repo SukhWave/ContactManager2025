@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    session_start();    
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@
         <main>
             <h2>Error</h2>
             <p>
-              <?php echo $_SESSION["add_error"]; ?>
+                <?php echo $_SESSION["add_error"]; ?> 
             </p>
 
             <p><a href="add_contact_form.php">Add Contact</a></p>

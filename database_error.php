@@ -1,5 +1,5 @@
 <?php
-   session_start();
+   session_start(); 
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@
             <p>There was an error connecting to the database.</p>
             <p>The database must be installed.</p>
             <p>MySQL must be running.</p>
-            <p>Error message: <?php echo $_SESSION["database_error"]; ?></p>
+            <p>Error mesage: <?php echo $_SESSION["database_error"]; ?></p>
 
             <p><a href="index.php">View Contact List</a></p>
         </main>

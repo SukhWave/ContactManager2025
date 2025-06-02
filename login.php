@@ -2,11 +2,11 @@
     session_start();
 
     // get data from the form
-    $user_name = filter_input(INPUT_POST, 'user_name');
+    $user_name = filter_input(INPUT_POST, 'user_name');    
     $password = filter_input(INPUT_POST, 'password');
 
-    $_SESSION["pass"] = $password;
-
+    $_SESSION["pass"] = $password;  
+    
     require_once('database.php');
 
     $query = 'SELECT password FROM registrations
@@ -16,7 +16,7 @@
     $statement1->bindValue(':userName', $user_name);
 
     $statement1->execute();
-    $row = $statement1->fetch();
+    $row = $statement1->fetch();    
 
     $statement1->closeCursor();
 
@@ -51,6 +51,6 @@
         $url = "login_form.php";
         header("Location: " . $url);
         die();
-    }
+    }    
 
 ?>

@@ -12,7 +12,7 @@
 
             <form action="add_contact.php" method="post" id="add_contact_form"
                 enctype="multipart/form-data">
-            
+
                 <div id="data">
 
                     <label>First Name:</label>
@@ -22,33 +22,34 @@
                     <input type="text" name="last_name" /><br />
 
                     <label>Email Address:</label>
-                    <input type="text" name="email_address" /><br />                    
+                    <input type="text" name="email_address" /><br />
 
                     <label>Phone Number:</label>
                     <input type="text" name="phone_number" /><br />
 
                     <label>Status:</label>
-                    <input type="radio" name="status" value="member" />Member<br />                    
+                    <input type="radio" name="status" value="member" />Member<br />
                     <input type="radio" name="status" value="nonmember" />Non-Member<br />
 
                     <label>Birth Date:</label>
-                    <input type="date" name="dob" /><br />                    
+                    <input type="date" name="dob" /><br />
 
-                    <label>Upload Image</label>
-                    <input type="file" name="file1" /><br /> 
+                    <label>Upload Image:</label>
+                    <input type="file" name="file1" /><br />
 
-                  </div>
+                </div>
 
-                  <div id="buttons">
+                <div id="buttons">
 
                     <label>&nbsp;</label>
-                    <input type="submit" value="Save Contact" /><br />                      
+                    <input type="submit" value="Save Contact" /><br />
 
-                  </div>
+                </div>
 
             </form>
 
             <p><a href="index.php">View Contact List</a></p>
+            
         </main>
 
         <?php include("footer.php"); ?>

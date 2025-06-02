@@ -3,12 +3,12 @@ body {
 }
 
 main {
-   display: block;
-   width: 850px;
-   margin: 0 auto;
-   padding: 1em;
-   background: white; 
-   border: 2px solid navy;
+    display: block;
+    width: 850px;
+    margin: 0 auto;
+    padding: 1em;
+    background: white;
+    border: 2px solid navy;
 }
 
 h1 {

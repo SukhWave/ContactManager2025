@@ -1,3 +1,6 @@
+<?php
+    require_once("database.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,26 +14,26 @@
             <h2>Register</h2>
 
             <form action="register_contact.php" method="post" id="register_contact_form">
-            
+
                 <div id="data">
 
                     <label>Username:</label>
                     <input type="text" name="user_name" /><br />
 
                     <label>Password:</label>
-                    <input type="text" name="password" /><br />
+                    <input type="password" name="password" /><br />                    
 
-                  </div>
+                </div>
 
-                  <div id="buttons">
+                <div id="buttons">
 
                     <label>&nbsp;</label>
-                    <input type="submit" value="Register" /><br />                      
+                    <input type="submit" value="Register" /><br />
 
-                  </div>
-                  
-            </form>
+                </div>
 
+            </form>            
+            
         </main>
 
         <?php include("footer.php"); ?>

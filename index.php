@@ -31,7 +31,7 @@
             <table>
                 <tr>
                     <th>First Name</th>
-                    <th>Last name</th>
+                    <th>Last Name</th>
                     <th>Email Address</th>
                     <th>Phone Number</th>
                     <th>Status</th>
@@ -54,14 +54,14 @@
                             <form action="update_contact_form.php" method="post">
                                 <input type="hidden" name="contact_id"
                                     value="<?php echo $contact['contactID']; ?>" />
-                                <input type="submit" value="Update" />   
+                                <input type="submit" value="Update" />
                             </form>
                         </td> <!-- for edit button -->
                         <td>
                             <form action="delete_contact.php" method="post">
                                 <input type="hidden" name="contact_id"
                                     value="<?php echo $contact['contactID']; ?>" />
-                                <input type="submit" value="Delete" />   
+                                <input type="submit" value="Delete" />
                             </form>
                         </td> <!-- for delete button -->
                     </tr>
