@@ -5,13 +5,17 @@ function process_image($dir, $filename) {
     $i = strrpos($filename, '.');
     $image_name = substr($filename, 0, $i);
     $ext = substr($filename, $i);
+
     // Set up the read path
     $image_path = $dir . DIRECTORY_SEPARATOR . $filename;
+
     // Set up the write paths
     $image_path_400 = $dir . $image_name . '_400' . $ext;
     $image_path_100 = $dir . $image_name . '_100' . $ext;
+
     // Create an image that's a maximum of 400x300 pixels
     resize_image($image_path, $image_path_400, 400, 300);
+    
     // Create a thumbnail image that's a maximum of 100x100 pixels
     resize_image($image_path, $image_path_100, 100, 100);
 }
