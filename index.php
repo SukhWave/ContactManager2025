@@ -43,6 +43,8 @@
                     <th>Photo</th>
                     <th>&nbsp;</th> <!-- for update -->
                     <th>&nbsp;</th> <!-- for delete -->
+                    <th>&nbsp;</th> <!-- for view details -->
+
                 </tr>
 
                 <?php foreach ($contacts as $contact): ?>
@@ -68,6 +70,12 @@
                             <form action="delete_contact.php" method="post">
                                 <input type="hidden" name="contact_id" value="<?php echo $contact['contactID']; ?>" />
                                 <input type="submit" value="Delete" />
+                            </form>
+                        </td>
+                        <td>
+                            <form action="contact_details.php" method="post">
+                                <input type="hidden" name="contact_id" value="<?php echo $contact['contactID']; ?>" />
+                                <input type="submit" value="View Details" />
                             </form>
                         </td>
                     </tr>
