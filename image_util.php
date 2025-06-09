@@ -1,4 +1,5 @@
 <?php
+
 function process_image($dir, $filename) {
     // Set up the variables
     $dir = $dir . DIRECTORY_SEPARATOR;
