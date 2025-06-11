@@ -7,7 +7,7 @@
     $user_name = filter_input(INPUT_POST, 'user_name');    
     $password = filter_input(INPUT_POST, 'password');
 
-    $hash = password_hash($password, PASSWORD_DEFAULT); 
+    $hash = password_hash($password, PASSWORD_DEFAULT);
     
     $email_address = filter_input(INPUT_POST, 'email_address');
     
@@ -56,24 +56,24 @@
         $statement->bindValue(':emailAddress', $email_address);
 
         $statement->execute();
-        $statement->closeCursor();      
+        $statement->closeCursor();
 
-    }
+    }    
 
     $_SESSION["isLoggedIn"] = 1;
     $_SESSION["userName"] = $user_name;
 
-    //set up email variables
+    // set up email variables
     $to_address = $email_address;
     $to_name = $user_name;
-    $from_address = 'sukhwave@gmail.com';
+    $from_address = 'sukhwave20@gmail.com';
     $from_name = 'Contact Manager 2025';
     $subject = 'Contact Manager 2025 - Registration Complete';
-    $body = '<p>Thanks for registering with our site.</p>' . 
-        '<p>Sincerely,</p>' . 
+    $body = '<p>Thanks for registering with our site.</p>' .
+        '<p>Sincerely,</p>' .
         '<p>Contact Manager 2025</p>';
     $is_body_html = true;
-    
+
     // Send email
     try
     {
@@ -86,7 +86,8 @@
         die();
     }
 
-    // redirect to confirmation page
+    
+        // redirect to confirmation page
     $url = "register_confirmation.php";
     header("Location: " . $url);
     die(); // releases add_contact.php from memory

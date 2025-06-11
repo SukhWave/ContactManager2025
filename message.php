@@ -2,16 +2,16 @@
     require './PHPMailer/PHPMailerAutoload.php';
 
     function send_email($to_address, $to_name, $from_address, $from_name,
-       $subject, $body, $is_body_html = false)
+        $subject, $body, $is_body_html = false)
     {
         if (!valid_email($to_address))
         {
-            throw new Exception('This To address is invalid: '  . htmlspecialchars($to_address));
+            throw new Exception('This To address is invalid: ' . htmlspecialchars($to_address));
         }
 
         if (!valid_email($from_address))
         {
-            throw new Exception('This To address is invalid: '  . htmlspecialchars($from_address));
+            throw new Exception('This From address is invalid: ' . htmlspecialchars($from_address));
         }
 
         $mail = new PHPMailer();
@@ -22,13 +22,13 @@
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
         $mail->SMTPAuth = true;
-        $mail->Username = 'sukhwave@gmail.com';
+        $mail->Username = 'sukhwave20@gmail.com';
         $mail->Password = 'thyc aagz qgdz leal';
 
         // Set From address, To Address, subject and body
         $mail->setFrom($from_address, $from_name);
         $mail->addAddress($to_address, $to_name);
-        $mail->subject = $subject;
+        $mail->Subject = $subject;
         $mail->Body = $body;
         $mail->AltBody = strip_tags($body);
 
@@ -36,12 +36,11 @@
         {
             $mail->isHTML(true);
         }
-        
+
         if(!$mail->send())
         {
-            throw new Exception('Error sending email: '  . htmlspecialchars($mail->ErrorInfo));
+            throw new Exception('Error sending email: ' . htmlspecialchars($mail->ErrorInfo));
         }
-
     }
 
     function valid_email($email)
